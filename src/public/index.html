@@ -15,7 +15,7 @@
             <button id="submit">Upload</button>
         </div>
 
-        <div id="fontTypes">
+        <div id="fontSelect">
             <h1>Font Type:</h1>
             <div for="headlineType">
                 <label>Headline Typeface:</label>
@@ -41,7 +41,7 @@
                 </select>
             </div>
         </div>
-        <div id="fontSliders">
+        <div id="sizeSliders">
             <h1>Font Size:</h1>
             <div for="headlineSize">
                 <label>Headline Font Size:</label>
@@ -77,8 +77,38 @@
                 <span id="bodyLetterspacingValue">0px</span>
             </div>
         </div>
+        <div id="caseSelect">
+            <h1>Typecase:</h1>
+            <div for="headlineCase">
+                <label>Headline Typecase:</label>
+                <select id="headlineCase">
+                    <option value="None">None</option>
+                   <option value="Capitalize">Sentence</option>
+                   <option value="Uppercase">Uppercase</option>
+                   <option value="Lowercase">Lowercase</option>
+                </select>
+            </div>
+            <div for="subheadCase">
+                <label>Subhead Typecase:</label>
+                <select id="subheadCase">
+                    <option value="None">None</option>
+                    <option value="Capitalize">Sentence</option>
+                    <option value="Uppercase">Uppercase</option>
+                    <option value="Lowercase">Lowercase</option>
+    
+                </select>
+            </div>
+            <div for="bodyCase">
+                <label>Body Typecase:</label>
+                <select id="bodyCase">
+                    <option value="None">None</option>
+                    <option value="Capitalize">Sentence</option>
+                    <option value="Uppercase">Uppercase</option>
+                    <option value="Lowercase">Lowercase</option> 
+                </select>
+            </div>
+        </div>
     </div>
-  
 
     <div class="hierarchy">
         <span id="headline" contenteditable="true">

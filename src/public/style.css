@@ -23,7 +23,8 @@ body {
     text-align: center;
 }
 .inputArea {
-    z-index: 999;
+    /* z-index: 999; */
+    width: fit-content;
 }
 
 #headline {

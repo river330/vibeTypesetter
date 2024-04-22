@@ -4,7 +4,33 @@ document.addEventListener("DOMContentLoaded", function () {
   changeFont();
   changeSize();
   changeLetterspacing();
+  changeTypecase();
 });
+
+function changeTypecase() {
+  // Get the select elements
+  let headlineSelect = document.getElementById("headlineCase");
+  let subheadSelect = document.getElementById("subheadCase");
+  let bodySelect = document.getElementById("bodyCase");
+
+  // Function to change font
+  function changeCase(selectElement, targetElementId) {
+    let selectedValue = selectElement.value;
+    document.getElementById(targetElementId).style.textTransform =
+      selectedValue;
+  }
+
+  // Event listeners for each select element
+  headlineSelect.addEventListener("change", function () {
+    changeCase(this, "headline");
+  });
+  subheadSelect.addEventListener("change", function () {
+    changeCase(this, "subhead");
+  });
+  bodySelect.addEventListener("change", function () {
+    changCaset(this, "body");
+  });
+}
 
 function changeFont() {
   // Get the select elements

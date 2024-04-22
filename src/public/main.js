@@ -85,15 +85,10 @@ function updateSpans(data) {
     updateSize(data, headlineSpan, subheadSpan, bodySpan);
     updateLetterspacing(data, headlineSpan, subheadSpan, bodySpan);
     updateType(data, headlineSpan, subheadSpan, bodySpan);
+    updateTypecase(data, headlineSpan, subheadSpan, bodySpan);
   } else {
     console.error("Incomplete data received from server:", data);
   }
-}
-
-function updateType(data, headlineSpan, subheadSpan, bodySpan) {
-  headlineSpan.style.fontFamily = data.headline.typeface;
-  subheadSpan.style.fontFamily = data.subhead.typeface;
-  bodySpan.style.fontFamily = data.body.typeface;
 }
 
 function updateContent(data, headlineSpan, subheadSpan, bodySpan) {
@@ -158,47 +153,13 @@ function updateLetterspacing(data, headlineSpan, subheadSpan, bodySpan) {
   bodySlider.value = data.body.letterspacing;
   console.log("finished updating slider values");
 }
-
-// // Get the span elements from the document
-// const headlineSpan = document.getElementById("headline");
-// const subheadSpan = document.getElementById("subhead");
-// const bodySpan = document.getElementById("body");
-
-// const headlineSlider = document.getElementById("headlineSize");
-// const subheadSlider = document.getElementById("subheadSize");
-// const bodySlider = document.getElementById("bodySize");
-
-// const headlineSizeValue = document.getElementById("headlineSizeValue");
-// const subheadSizeValue = document.getElementById("subheadSizeValue");
-// const bodySizeValue = document.getElementById("bodySizeValue");
-
-// // Update headline span with the content and styles
-// headlineSpan.innerText = data.headline.content;
-// headlineSpan.style.fontFamily = data.headline.typeface;
-// headlineSpan.style.letterSpacing = data.headline.letterspacing;
-// headlineSpan.style.fontSize = data.headline["font-size"] + "px";
-// headlineSpan.style.textTransform = data.headline.typecase;
-
-// // Update subhead span with the content and styles
-// subheadSpan.innerText = data.subhead.content;
-// subheadSpan.style.fontFamily = data.subhead.typeface;
-// subheadSpan.style.letterSpacing = data.subhead.letterspacing;
-// subheadSpan.style.fontSize = data.subhead["font-size"] + "px";
-// subheadSpan.style.textTransform = data.subhead.typecase;
-
-// // Update body span with the content and styles
-// bodySpan.innerText = data.body.content;
-// bodySpan.style.fontFamily = data.body.typeface;
-// bodySpan.style.letterSpacing = data.body.letterspacing;
-// bodySpan.style.fontSize = data.body["font-size"] + "px";
-// bodySpan.style.textTransform = data.body.typecase;
-
-// headlineSizeValue.textContent = data.headline["font-size"] + "px";
-// subheadSizeValue.textContent = data.subhead["font-size"] + "px";
-// bodySizeValue.textContent = data.body["font-size"] + "px";
-// console.log("finished updating slider number");
-
-// headlineSlider.value = data.headline["font-size"];
-// subheadSlider.value = data.subhead["font-size"];
-// bodySlider.value = data.body["font-size"];
-// console.log("finished updating slider value");
+function updateType(data, headlineSpan, subheadSpan, bodySpan) {
+  headlineSpan.style.fontFamily = data.headline.typeface;
+  subheadSpan.style.fontFamily = data.subhead.typeface;
+  bodySpan.style.fontFamily = data.body.typeface;
+}
+function updateTypecase(data, headlineSpan, subheadSpan, bodySpan) {
+  headlineSpan.style.textTransform = data.headline.typecase;
+  subheadSpan.style.textTransform = data.subhead.typecase;
+  bodySpan.style.textTransform = data.body.typecase;
+}
