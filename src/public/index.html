@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Upload Image</title>
+    <link href="style.css" rel="stylesheet" />
+
+</head>
+<body>
+    <h1>Vibe Typesetter</h1>
+    <div class="inputArea">
+        <div>
+            <input type="text" id="vibeInput">
+            <button id="submit">Upload</button>
+        </div>
+
+        <div>
+            <label for="headlineSize">Headline Font Size:</label>
+            <input type="range" id="headlineSize" name="headlineSize" min="10" max="100" value="24">
+            <span id="headlineSizeValue">24px</span>
+          </div>
+          <div>
+            <label for="subheadSize">Subhead Font Size:</label>
+            <input type="range" id="subheadSize" name="subheadSize" min="10" max="100" value="20">
+            <span id="subheadSizeValue">20px</span>
+          </div>
+          <div>
+            <label for="bodySize">Body Font Size:</label>
+            <input type="range" id="bodySize" name="bodySize" min="10" max="100" value="16">
+            <span id="bodySizeValue">16px</span>
+          </div>
+    </div>
+  
+
+    <div class="hierarchy">
+        <span id="headline">
+            Lorem ipsum
+        </span>
+        <span id="subhead">
+            Lorem ipsum
+        </span>
+        <span id="body">
+            Lorem ipsum
+        </span>
+    </div>
+    <script src="main.js"></script>
+    <script src="typetool.js"></script>
+</body>
+</html>
