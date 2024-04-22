@@ -19,22 +19,22 @@ function onSubmit() {
       {
         headline: {
             "font-size": '36' (SET IT IN PX, DONT INCLUDE PX IN YOUR RESPONSE), 
-            "typeface": 'helvetica',
-            "letterspacing": '0.5',
+            "typeface": 'helvetica' (CHOOSE ONLY BETWEEN 'HELVETICA' OR 'GARAMOND'),
+            "letterspacing": '1' (SET IT IN PX, DONT INCLUDE PX IN YOUR RESPONSE),
             "typecase": 'uppercase',
             "content": 'create a max-three word headline related to the ${vibe}',
         },
         subhead: {
             "font-size": '24' (SET IT IN PX, DONT INCLUDE PX IN YOUR RESPONSE), 
-            "typeface": 'helvetica',
-            "letterspacing": '0.5px',
+            "typeface": 'helvetica' (CHOOSE ONLY BETWEEN 'HELVETICA' OR 'GARAMOND'),
+            "letterspacing": '0.5' (SET IT IN PX, DONT INCLUDE PX IN YOUR RESPONSE),
             "typecase": 'lowercase'
             "content": 'create a max-sentence long or preferably subhead related to the ${vibe}',
         },
         body: {
             "font-size": '12' (SET IT IN PX, DONT INCLUDE PX IN YOUR RESPONSE),
-            "typeface": 'helvetica',
-            "letterspacing": '0.5px',
+            "typeface": 'helvetica' (CHOOSE ONLY BETWEEN 'HELVETICA' OR 'GARAMOND'),
+            "letterspacing": '0.5' (SET IT IN PX, DONT INCLUDE PX IN YOUR RESPONSE),
             "typecase": 'sentence':
             "content": 'create a fake body copy of max 4-sentences for the ${vibe}',
         }
@@ -74,10 +74,6 @@ async function dataToJSON(data) {
 
 function updateSpans(data) {
   console.log("Updating spans with data:", data);
-  console.log("Headline data:", data.headline);
-
-  console.log(data.headline);
-
   // Check if the response includes the necessary data for all parts
   if (data.headline && data.subhead && data.body) {
     // Get the span elements from the document
@@ -87,9 +83,17 @@ function updateSpans(data) {
 
     updateContent(data, headlineSpan, subheadSpan, bodySpan);
     updateSize(data, headlineSpan, subheadSpan, bodySpan);
+    updateLetterspacing(data, headlineSpan, subheadSpan, bodySpan);
+    updateType(data, headlineSpan, subheadSpan, bodySpan);
   } else {
     console.error("Incomplete data received from server:", data);
   }
+}
+
+function updateType(data, headlineSpan, subheadSpan, bodySpan) {
+  headlineSpan.style.fontFamily = data.headline.typeface;
+  subheadSpan.style.fontFamily = data.subhead.typeface;
+  bodySpan.style.fontFamily = data.body.typeface;
 }
 
 function updateContent(data, headlineSpan, subheadSpan, bodySpan) {
@@ -105,9 +109,9 @@ function updateSize(data, headlineSpan, subheadSpan, bodySpan) {
   const subheadSlider = document.getElementById("subheadSize");
   const bodySlider = document.getElementById("bodySize");
 
-  const headlineSizeValue = document.getElementById("headlineSizeValue");
-  const subheadSizeValue = document.getElementById("subheadSizeValue");
-  const bodySizeValue = document.getElementById("bodySizeValue");
+  const headlineValue = document.getElementById("headlineSizeValue");
+  const subheadValue = document.getElementById("subheadSizeValue");
+  const bodyValue = document.getElementById("bodySizeValue");
 
   // Update headline span with the content and styles
   headlineSpan.style.fontSize = data.headline["font-size"] + "px";
@@ -117,14 +121,41 @@ function updateSize(data, headlineSpan, subheadSpan, bodySpan) {
   bodySpan.style.fontSize = data.body["font-size"] + "px";
   console.log("finished updating size");
 
-  headlineSizeValue.textContent = data.headline["font-size"] + "px";
-  subheadSizeValue.textContent = data.subhead["font-size"] + "px";
-  bodySizeValue.textContent = data.body["font-size"] + "px";
+  headlineValue.textContent = data.headline["font-size"] + "px";
+  subheadValue.textContent = data.subhead["font-size"] + "px";
+  bodyValue.textContent = data.body["font-size"] + "px";
   console.log("finished updating slider labels");
 
   headlineSlider.value = data.headline["font-size"];
   subheadSlider.value = data.subhead["font-size"];
   bodySlider.value = data.body["font-size"];
+  console.log("finished updating slider values");
+}
+function updateLetterspacing(data, headlineSpan, subheadSpan, bodySpan) {
+  const headlineSlider = document.getElementById("headlineLetterspacing");
+  const subheadSlider = document.getElementById("subheadLetterspacing");
+  const bodySlider = document.getElementById("bodyLetterspacing");
+
+  const headlineValue = document.getElementById("headlineLetterspacingValue");
+  const subheadValue = document.getElementById("subheadLetterspacingValue");
+  const bodyValue = document.getElementById("bodyLetterspacingValue");
+
+  // Update headline span with the content and styles
+  headlineSpan.style.letterSpacing = data.headline.letterspacing + "px";
+  // Update subhead span with the content and styles
+  subheadSpan.style.letterSpacing = data.subhead.letterspacing + "px";
+  // Update body span with the content and styles
+  bodySpan.style.letterSpacing = data.body.letterspacing + "px";
+  console.log("finished updating size");
+
+  headlineValue.textContent = data.headline.letterspacing + "px";
+  subheadValue.textContent = data.subhead.letterspacing + "px";
+  bodyValue.textContent = data.body.letterspacing + "px";
+  console.log("finished updating slider labels");
+
+  headlineSlider.value = data.headline.letterspacing;
+  subheadSlider.value = data.subhead.letterspacing;
+  bodySlider.value = data.body.letterspacing;
   console.log("finished updating slider values");
 }
 
