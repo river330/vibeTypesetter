@@ -9,13 +9,13 @@ document.addEventListener("DOMContentLoaded", function () {
 
 function changeTypecase() {
   // Get the select elements
-  let headlineSelect = document.getElementById("headlineCase");
-  let subheadSelect = document.getElementById("subheadCase");
-  let bodySelect = document.getElementById("bodyCase");
+  const headlineSelect = document.getElementById("headlineCase");
+  const subheadSelect = document.getElementById("subheadCase");
+  const bodySelect = document.getElementById("bodyCase");
 
   // Function to change font
   function changeCase(selectElement, targetElementId) {
-    let selectedValue = selectElement.value;
+    const selectedValue = selectElement.value;
     document.getElementById(targetElementId).style.textTransform =
       selectedValue;
   }
@@ -34,13 +34,13 @@ function changeTypecase() {
 
 function changeFont() {
   // Get the select elements
-  let headlineSelect = document.getElementById("headlineType");
-  let subheadSelect = document.getElementById("subheadType");
-  let bodySelect = document.getElementById("bodyType");
+  const headlineSelect = document.getElementById("headlineType");
+  const subheadSelect = document.getElementById("subheadType");
+  const bodySelect = document.getElementById("bodyType");
 
   // Function to change font
   function changeFont(selectElement, targetElementId) {
-    var selectedValue = selectElement.value;
+    const selectedValue = selectElement.value;
     document.getElementById(targetElementId).style.fontFamily = selectedValue;
   }
 
