@@ -40,9 +40,13 @@ function onSubmit() {
         }
       }`;
 
-  headlineSpan.innerHTML = "loading...";
-  subheadSpan.innerHTML = "loading...";
-  bodySpan.innerHTML = "loading...";
+  headlineSpan.innerHTML = "Loading...";
+  subheadSpan.innerHTML = "Loading...";
+  bodySpan.innerHTML = "Loading...";
+
+  headlineSpan.style.opacity = "40%";
+  subheadSpan.style.opacity = "40%";
+  bodySpan.style.opacity = "40%";
 
   fetch(`/upload`, {
     method: "POST",
@@ -73,14 +77,13 @@ async function dataToJSON(data) {
 }
 
 function updateSpans(data) {
+  headlineSpan.style.opacity = "100%";
+  subheadSpan.style.opacity = "100%";
+  bodySpan.style.opacity = "100%";
   console.log("Updating spans with data:", data);
   // Check if the response includes the necessary data for all parts
   if (data.headline && data.subhead && data.body) {
     // Get the span elements from the document
-    const headlineSpan = document.getElementById("headline");
-    const subheadSpan = document.getElementById("subhead");
-    const bodySpan = document.getElementById("body");
-
     updateContent(data, headlineSpan, subheadSpan, bodySpan);
     updateSize(data, headlineSpan, subheadSpan, bodySpan);
     updateLetterspacing(data, headlineSpan, subheadSpan, bodySpan);

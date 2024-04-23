@@ -1,25 +1,37 @@
 
 body {
-    font-family: sans-serif;
+    font-family: 'ABCDiatype'
+
+}
+#container {
+    display: flex;
+    flex-direction: row;
+    margin-left: 20px;
+    margin-right: 20px;
+
+    height: 100vh;
+}
+.column-left{
+    width: 30%;
+}
+.column-right{
+    width: 70%;
 }
 .hierarchy {
     display: flex;
     flex-direction: column;
-    width: 100vw;
-
 
     margin: auto;
     justify-content: center;
     align-items: center;
-    height: 100vh;
 
-    position:absolute;
-    top: 0px;
-    z-index: -999;
+    height: 100%;
+
 }
 
 .hierarchy span{
-    width: 50%;
+    font-family: Helvetica;
+    width: 75%;
     text-align: center;
 }
 .inputArea {
@@ -36,4 +48,28 @@ body {
 }
 #body {
     font-size: 16px;
+}
+
+h2{
+    font-size: 1.2em;
+    font-weight: 500;
+    margin-bottom: 2px;
+    text-transform: uppercase;
+    letter-spacing: 3px;
+}
+
+select, button{
+    font-family: 'ABCDiatype';
+}
+
+.styled-slider, select{
+    width: 10vw;
+}
+
+#sizeSliders div, #fontSelect div, #caseSelect div, #letterspacingSliders div {
+    display: flex;
+    flex-direction: column;
+}
+label {
+    margin-bottom: 2px;
 }

@@ -4,123 +4,124 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Upload Image</title>
+    <link href="font.css" rel="stylesheet" />
     <link href="style.css" rel="stylesheet" />
 
 </head>
 <body>
-    <h1>Vibe Typesetter</h1>
-    <div class="inputArea">
-        <div>
-            <input type="text" id="vibeInput">
-            <button id="submit">Upload</button>
-        </div>
-
-        <div id="fontSelect">
-            <h1>Font Type:</h1>
-            <div for="headlineType">
-                <label>Headline Typeface:</label>
-                <select id="headlineType">
-                   <option value="Helvetica">Helvetica</option> 
-                   <option value="Garamond">Garamond</option> 
-                </select>
-            </div>
-            <div for="subheadType">
-                <label>Subhead Typeface:</label>
-                <select id="subheadType">
-
-                    <option value="Helvetica">Helvetica</option>
-                    <option value="Garamond">Garamond</option> 
-
-                </select>
-            </div>
-            <div for="bodyType">
-                <label>Body Typeface:</label>
-                <select id="bodyType">
-                    <option value="Helvetica">Helvetica</option>
-                    <option value="Garamond">Garamond</option> 
-                </select>
-            </div>
-        </div>
-        <div id="sizeSliders">
-            <h1>Font Size:</h1>
-            <div for="headlineSize">
-                <label>Headline Font Size:</label>
-                <input type="range" id="headlineSize" min="10" max="100" value="24">
-                <span id="headlineSizeValue">24px</span>
-            </div>
-            <div for="subheadSize">
-                <label>Subhead Font Size:</label>
-                <input type="range" id="subheadSize" min="10" max="100" value="20">
-                <span id="subheadSizeValue">20px</span>
-            </div>
-            <div for="bodySize">
-                <label>Body Font Size:</label>
-                <input type="range" id="bodySize" min="10" max="100" value="16">
-                <span id="bodySizeValue">16px</span>
-            </div>
-        </div>
-        <div id="letterspacingSliders">
-            <h1>Letterspacing:</h1>
-            <div for="headlineLetterspacing">
-                <label>Headline Letterspacing:</label>
-                <input type="range" id="headlineLetterspacing" min="-20" max="20" value="0" step="0.1">
-                <span id="headlineLetterspacingValue">0px</span>
-            </div>
-            <div for="subheadLetterspacing">
-                <label>Subhead Letterspacing:</label>
-                <input type="range" id="subheadLetterspacing" min="-20" max="20" value="0" step="0.1">
-                <span id="subheadLetterspacingValue">0px</span>
-            </div>
-            <div for="bodyLetterspacing">
-                <label>Body Letterspacing:</label>
-                <input type="range" id="bodyLetterspacing"  min="-20" max="20" value="0" step="0.1">
-                <span id="bodyLetterspacingValue">0px</span>
-            </div>
-        </div>
-        <div id="caseSelect">
-            <h1>Typecase:</h1>
-            <div for="headlineCase">
-                <label>Headline Typecase:</label>
-                <select id="headlineCase">
-                    <option value="None">None</option>
-                   <option value="Capitalize">Sentence</option>
-                   <option value="Uppercase">Uppercase</option>
-                   <option value="Lowercase">Lowercase</option>
-                </select>
-            </div>
-            <div for="subheadCase">
-                <label>Subhead Typecase:</label>
-                <select id="subheadCase">
-                    <option value="None">None</option>
-                    <option value="Capitalize">Sentence</option>
-                    <option value="Uppercase">Uppercase</option>
-                    <option value="Lowercase">Lowercase</option>
+    <main id="container">
+        <div class="column-left">
+            <h1>Vibe Typesetter</h1>
+            <div class="inputArea">
+                <div>
+                    <input type="text" id="vibeInput">
+                    <button id="submit">VIBESET</button>
+                </div>
     
-                </select>
-            </div>
-            <div for="bodyCase">
-                <label>Body Typecase:</label>
-                <select id="bodyCase">
-                    <option value="None">None</option>
-                    <option value="Capitalize">Sentence</option>
-                    <option value="Uppercase">Uppercase</option>
-                    <option value="Lowercase">Lowercase</option> 
-                </select>
+                <div id="fontSelect">
+                    <h2>Font Type:</h2>
+                    <div for="headlineType">
+                        <label>Headline Typeface:</label>
+                        <select id="headlineType">
+                        <option value="Helvetica">Helvetica</option> 
+                        <option value="Garamond">Garamond</option> 
+                        </select>
+                    </div>
+                    <div for="subheadType">
+                        <label>Subhead Typeface:</label>
+                        <select id="subheadType">
+    
+                            <option value="Helvetica">Helvetica</option>
+                            <option value="Garamond">Garamond</option> 
+    
+                        </select>
+                    </div>
+                    <div for="bodyType">
+                        <label>Body Typeface:</label>
+                        <select id="bodyType">
+                            <option value="Helvetica">Helvetica</option>
+                            <option value="Garamond">Garamond</option> 
+                        </select>
+                    </div>
+                </div>
+                <div id="sizeSliders">
+                    <h2>Font Size:</h2>
+                    <div for="headlineSize">
+                        <label>Headline Font Size: <span id="headlineSizeValue">24px</span></label>
+                        <input class="styled-slider" type="range" id="headlineSize" min="10" max="100" value="24">
+                    </div>
+                    <div for="subheadSize">
+                        <label>Subhead Font Size: <span id="subheadSizeValue">20px</span></label>
+                        <input class="styled-slider" type="range" id="subheadSize" min="10" max="100" value="20">
+                        
+                    </div>
+                    <div for="bodySize">
+                        <label>Body Font Size: <span id="bodySizeValue">16px</span></label>
+                        <input class="styled-slider" type="range" id="bodySize" min="10" max="100" value="16">
+                    </div>
+                </div>
+                <div id="letterspacingSliders">
+                    <h2>Letterspacing:</h2>
+                    <div for="headlineLetterspacing">
+                        <label>Headline Letterspacing: <span id="headlineLetterspacingValue">0px</span></label>
+                        <input class="styled-slider" type="range" id="headlineLetterspacing" min="-20" max="20" value="0" step="0.1">
+                    </div>
+                    <div for="subheadLetterspacing">
+                        <label>Subhead Letterspacing: <span id="subheadLetterspacingValue">0px</span></label>
+                        <input class="styled-slider" type="range" id="subheadLetterspacing" min="-20" max="20" value="0" step="0.1">
+                    </div>
+                    <div for="bodyLetterspacing">
+                        <label>Body Letterspacing: <span id="bodyLetterspacingValue">0px</span></label>
+                        <input class="styled-slider" type="range" id="bodyLetterspacing"  min="-20" max="20" value="0" step="0.1">
+                    </div>
+                </div>
+                <div id="caseSelect">
+                    <h2>Typecase:</h2>
+                    <div for="headlineCase">
+                        <label>Headline Typecase:</label>
+                        <select id="headlineCase">
+                            <option value="None">None</option>
+                        <option value="Capitalize">Sentence</option>
+                        <option value="Uppercase">Uppercase</option>
+                        <option value="Lowercase">Lowercase</option>
+                        </select>
+                    </div>
+                    <div for="subheadCase">
+                        <label>Subhead Typecase:</label>
+                        <select id="subheadCase">
+                            <option value="None">None</option>
+                            <option value="Capitalize">Sentence</option>
+                            <option value="Uppercase">Uppercase</option>
+                            <option value="Lowercase">Lowercase</option>
+            
+                        </select>
+                    </div>
+                    <div for="bodyCase">
+                        <label>Body Typecase:</label>
+                        <select id="bodyCase">
+                            <option value="None">None</option>
+                            <option value="Capitalize">Sentence</option>
+                            <option value="Uppercase">Uppercase</option>
+                            <option value="Lowercase">Lowercase</option> 
+                        </select>
+                    </div>
+                </div>
             </div>
         </div>
-    </div>
-
-    <div class="hierarchy">
-        <span id="headline" contenteditable="true">
-            Lorem ipsum
-        </span>
-        <span id="subhead" contenteditable="true">
-            Lorem ipsum
-        </span>
-        <span id="body" contenteditable="true">
-            Lorem ipsum
-        </span>
-    </div>
+        <div class="column-right">
+            <div class="hierarchy">
+                <span id="headline" contenteditable="true">
+                    Lorem ipsum
+                </span>
+                <span id="subhead" contenteditable="true">
+                    Lorem ipsum
+                </span>
+                <span id="body" contenteditable="true">
+                    Lorem ipsum
+                </span>
+            </div>
+        </div>
+    </main>
     <script src="typetool.js"></script>
     <script src="main.js"></script>
 </body>
