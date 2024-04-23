@@ -15,27 +15,27 @@ function onSubmit() {
   console.log(vibe);
   const prompt =
     `You are a designer trying to provide a type hierarchy based on the following vibes: ${vibe}. You will be providing option for a headline, subhead, and body, identifying the typeface, letterspacing, typecase for each one. In addition you will provide a font-size ratio for the three.
-      When returning your response, make sure to structure it in JSON format and to include the following parameters: Do not include "'''json" in your response:
+      When returning your response, make sure to structure it in JSON format and to include the following parameters: Do not include "'''json" in your response and ALWAYS provide your responses in lowercase:
       {
         headline: {
             "font-size": '36' (SET IT IN PX, DONT INCLUDE PX IN YOUR RESPONSE), 
             "typeface": 'helvetica' (CHOOSE ONLY BETWEEN 'HELVETICA' OR 'GARAMOND'),
             "letterspacing": '1' (SET IT IN PX, DONT INCLUDE PX IN YOUR RESPONSE),
-            "typecase": 'uppercase',
+            "typecase": 'uppercase'(CHOOSE ONLY BETWEEN 'capitalize', 'uppercase', 'lowercase', 'none'),
             "content": 'create a max-three word headline related to the ${vibe}',
         },
         subhead: {
             "font-size": '24' (SET IT IN PX, DONT INCLUDE PX IN YOUR RESPONSE), 
             "typeface": 'helvetica' (CHOOSE ONLY BETWEEN 'HELVETICA' OR 'GARAMOND'),
             "letterspacing": '0.5' (SET IT IN PX, DONT INCLUDE PX IN YOUR RESPONSE),
-            "typecase": 'lowercase'
+            "typecase": 'lowercase' (CHOOSE ONLY BETWEEN 'capitalize', 'uppercase', 'lowercase', 'none'),
             "content": 'create a max-sentence long or preferably subhead related to the ${vibe}',
         },
         body: {
             "font-size": '12' (SET IT IN PX, DONT INCLUDE PX IN YOUR RESPONSE),
             "typeface": 'helvetica' (CHOOSE ONLY BETWEEN 'HELVETICA' OR 'GARAMOND'),
             "letterspacing": '0.5' (SET IT IN PX, DONT INCLUDE PX IN YOUR RESPONSE),
-            "typecase": 'sentence':
+            "typecase": 'sentence'(CHOOSE ONLY BETWEEN 'capitalize', 'uppercase', 'lowercase', 'none'),
             "content": 'create a fake body copy of max 4-sentences for the ${vibe}',
         }
       }`;
@@ -117,17 +117,14 @@ function updateSize(data, headlineSpan, subheadSpan, bodySpan) {
   subheadSpan.style.fontSize = data.subhead["font-size"] + "px";
   // Update body span with the content and styles
   bodySpan.style.fontSize = data.body["font-size"] + "px";
-  console.log("finished updating size");
 
   headlineValue.textContent = data.headline["font-size"] + "px";
   subheadValue.textContent = data.subhead["font-size"] + "px";
   bodyValue.textContent = data.body["font-size"] + "px";
-  console.log("finished updating slider labels");
 
   headlineSlider.value = data.headline["font-size"];
   subheadSlider.value = data.subhead["font-size"];
   bodySlider.value = data.body["font-size"];
-  console.log("finished updating slider values");
 }
 function updateLetterspacing(data, headlineSpan, subheadSpan, bodySpan) {
   const headlineSlider = document.getElementById("headlineLetterspacing");
@@ -144,25 +141,43 @@ function updateLetterspacing(data, headlineSpan, subheadSpan, bodySpan) {
   subheadSpan.style.letterSpacing = data.subhead.letterspacing + "px";
   // Update body span with the content and styles
   bodySpan.style.letterSpacing = data.body.letterspacing + "px";
-  console.log("finished updating size");
 
   headlineValue.textContent = data.headline.letterspacing + "px";
   subheadValue.textContent = data.subhead.letterspacing + "px";
   bodyValue.textContent = data.body.letterspacing + "px";
-  console.log("finished updating slider labels");
 
   headlineSlider.value = data.headline.letterspacing;
   subheadSlider.value = data.subhead.letterspacing;
   bodySlider.value = data.body.letterspacing;
-  console.log("finished updating slider values");
 }
 function updateType(data, headlineSpan, subheadSpan, bodySpan) {
   headlineSpan.style.fontFamily = data.headline.typeface;
   subheadSpan.style.fontFamily = data.subhead.typeface;
   bodySpan.style.fontFamily = data.body.typeface;
+
+  const headlineSelect = document.getElementById("headlineType");
+  const subheadSelect = document.getElementById("subheadType");
+  const bodySelect = document.getElementById("bodyType");
+
+  // console.log(data.headline.typeface);
+  headlineSelect.value = data.headline.typeface;
+  subheadSelect.value = data.subhead.typeface;
+
+  console.log(data.body.typeface);
+  bodySelect.value = data.body.typeface;
 }
 function updateTypecase(data, headlineSpan, subheadSpan, bodySpan) {
   headlineSpan.style.textTransform = data.headline.typecase;
   subheadSpan.style.textTransform = data.subhead.typecase;
   bodySpan.style.textTransform = data.body.typecase;
+
+  const headlineSelect = document.getElementById("headlineCase");
+  const subheadSelect = document.getElementById("subheadCase");
+  const bodySelect = document.getElementById("bodyCase");
+
+  // console.log(data.headline.typecase);
+  headlineSelect.value = data.headline.typecase;
+  subheadSelect.value = data.subhead.typecase;
+  console.log(data.body.typecase);
+  bodySelect.value = data.body.typecase;
 }
