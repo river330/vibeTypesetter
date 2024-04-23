@@ -1,6 +1,8 @@
 
 body {
-    font-family: 'ABCDiatype'
+    font-family: 'ABCDiatype';
+    font-weight: 300;
+    overflow: hidden;
 
 }
 #container {
@@ -20,6 +22,7 @@ body {
 .hierarchy {
     display: flex;
     flex-direction: column;
+    gap:10px;
 
     margin: auto;
     justify-content: center;
@@ -55,7 +58,7 @@ h2{
     font-weight: 500;
     margin-bottom: 2px;
     text-transform: uppercase;
-    letter-spacing: 3px;
+    letter-spacing: 2px;
 }
 
 select, button{
@@ -71,5 +74,19 @@ select, button{
     flex-direction: column;
 }
 label {
-    margin-bottom: 2px;
+    margin-bottom: 3px;
+    font-size: 0.9em;
+}
+
+select {
+    margin-bottom: 5px;
+}
+
+.styled-slider {
+    margin-top: 0px;
+}
+
+h1 {
+    font-weight: 500;
+    margin-bottom: 10px;
 }

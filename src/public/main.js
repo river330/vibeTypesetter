@@ -35,7 +35,7 @@ function onSubmit() {
             "font-size": '12' (SET IT IN PX, DONT INCLUDE PX IN YOUR RESPONSE),
             "typeface": 'helvetica' (CHOOSE ONLY BETWEEN 'HELVETICA' OR 'GARAMOND'),
             "letterspacing": '0.5' (SET IT IN PX, DONT INCLUDE PX IN YOUR RESPONSE),
-            "typecase": 'sentence'(CHOOSE ONLY BETWEEN 'capitalize', 'uppercase', 'lowercase', 'none'),
+            "typecase": 'none'(CHOOSE ONLY BETWEEN 'capitalize', 'uppercase', 'lowercase', 'none'),
             "content": 'create a fake body copy of max 4-sentences for the ${vibe}',
         }
       }`;
