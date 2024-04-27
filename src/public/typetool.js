@@ -1,11 +1,27 @@
+import { availableFonts } from "./fonts.js";
 console.log("Hello, typesetter.js");
 
 document.addEventListener("DOMContentLoaded", function () {
+  populateFontSelects();
+
   changeFont();
   changeSize();
   changeLetterspacing();
   changeTypecase();
 });
+
+function populateFontSelects() {
+  const selects = ["headlineType", "subheadType", "bodyType"];
+  selects.forEach((selectId) => {
+    const selectElement = document.getElementById(selectId);
+    availableFonts.forEach((font) => {
+      const option = document.createElement("option");
+      option.textContent = font.name;
+      option.value = font.value;
+      selectElement.appendChild(option);
+    });
+  });
+}
 
 function changeTypecase() {
   // Get the select elements
