@@ -147,3 +147,17 @@ export async function makeImage(prompt, c = {}) {
 
   return image.data[0].url;
 }
+
+export async function generateEmbeddings(text) {
+  try {
+    const response = await openai.embeddings.create({
+      model: "text-embedding-ada-002", // You can choose a different embedding model if needed
+      input: text,
+    });
+    // console.log(response);
+    return response.data[0].embedding;
+  } catch (error) {
+    console.error("Error generating embeddings:", error);
+    return null;
+  }
+}

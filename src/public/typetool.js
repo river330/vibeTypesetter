@@ -32,6 +32,8 @@ function changeTypecase() {
   // Function to change font
   function changeCase(selectElement, targetElementId) {
     const selectedValue = selectElement.value;
+    document.getElementById(targetElementId).innerHTML = document
+      .getElementById(targetElementId).innerHTML.toLowercase();
     document.getElementById(targetElementId).style.textTransform =
       selectedValue;
   }
@@ -44,7 +46,7 @@ function changeTypecase() {
     changeCase(this, "subhead");
   });
   bodySelect.addEventListener("change", function () {
-    changCaset(this, "body");
+    changeCase(this, "body");
   });
 }
 

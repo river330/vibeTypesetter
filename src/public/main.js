@@ -11,34 +11,34 @@ const bodySpan = document.getElementById("body");
 
 function onSubmit() {
   console.log("submitting");
-  const vibe = vibeInput.value;
-  console.log(vibe);
-  const prompt =
-    `You are a designer trying to provide a type hierarchy based on the following vibes: ${vibe}. You will be providing option for a headline, subhead, and body, identifying the typeface, letterspacing, typecase for each one. In addition you will provide a font-size ratio for the three.
-      When returning your response, make sure to structure it in JSON format and to include the following parameters: Do not include "'''json" in your response and ALWAYS provide your responses in lowercase:
-      {
-        headline: {
-            "font-size": '36' (SET IT IN PX, DONT INCLUDE PX IN YOUR RESPONSE), 
-            "typeface": 'helvetica' (CHOOSE ONLY BETWEEN 'HELVETICA' OR 'GARAMOND'),
-            "letterspacing": '1' (SET IT IN PX, DONT INCLUDE PX IN YOUR RESPONSE),
-            "typecase": 'uppercase'(CHOOSE ONLY BETWEEN 'capitalize', 'uppercase', 'lowercase', 'none'),
-            "content": 'create a max-three word headline related to the ${vibe}',
-        },
-        subhead: {
-            "font-size": '24' (SET IT IN PX, DONT INCLUDE PX IN YOUR RESPONSE), 
-            "typeface": 'helvetica' (CHOOSE ONLY BETWEEN 'HELVETICA' OR 'GARAMOND'),
-            "letterspacing": '0.5' (SET IT IN PX, DONT INCLUDE PX IN YOUR RESPONSE),
-            "typecase": 'lowercase' (CHOOSE ONLY BETWEEN 'capitalize', 'uppercase', 'lowercase', 'none'),
-            "content": 'create a max-sentence long or preferably subhead related to the ${vibe}',
-        },
-        body: {
-            "font-size": '12' (SET IT IN PX, DONT INCLUDE PX IN YOUR RESPONSE),
-            "typeface": 'helvetica' (CHOOSE ONLY BETWEEN 'HELVETICA' OR 'GARAMOND'),
-            "letterspacing": '0.5' (SET IT IN PX, DONT INCLUDE PX IN YOUR RESPONSE),
-            "typecase": 'none'(CHOOSE ONLY BETWEEN 'capitalize', 'uppercase', 'lowercase', 'none'),
-            "content": 'create a fake body copy of max 4-sentences for the ${vibe}',
-        }
-      }`;
+  const vibeValue = vibeInput.value;
+  console.log(vibeValue);
+  // const prompt =
+  //   `You are a designer trying to provide a type hierarchy based on the following vibes: ${vibe}. You will be providing option for a headline, subhead, and body, identifying the typeface, letterspacing, typecase for each one. In addition you will provide a font-size ratio for the three.
+  //     When returning your response, make sure to structure it in JSON format and to include the following parameters: Do not include "'''json" in your response and ALWAYS provide your responses in lowercase:
+  //     {
+  //       headline: {
+  //           "font-size": '36' (SET IT IN PX, DONT INCLUDE PX IN YOUR RESPONSE),
+  //           "typeface": 'helvetica' (CHOOSE ONLY BETWEEN 'HELVETICA' OR 'GARAMOND'),
+  //           "letterspacing": '1' (SET IT IN PX, DONT INCLUDE PX IN YOUR RESPONSE),
+  //           "typecase": 'uppercase'(CHOOSE ONLY BETWEEN 'capitalize', 'uppercase', 'lowercase', 'none'),
+  //           "content": 'create a max-three word headline related to the ${vibe}',
+  //       },
+  //       subhead: {
+  //           "font-size": '24' (SET IT IN PX, DONT INCLUDE PX IN YOUR RESPONSE),
+  //           "typeface": 'helvetica' (CHOOSE ONLY BETWEEN 'HELVETICA' OR 'GARAMOND'),
+  //           "letterspacing": '0.5' (SET IT IN PX, DONT INCLUDE PX IN YOUR RESPONSE),
+  //           "typecase": 'lowercase' (CHOOSE ONLY BETWEEN 'capitalize', 'uppercase', 'lowercase', 'none'),
+  //           "content": 'create a max-sentence long or preferably subhead related to the ${vibe}',
+  //       },
+  //       body: {
+  //           "font-size": '12' (SET IT IN PX, DONT INCLUDE PX IN YOUR RESPONSE),
+  //           "typeface": 'helvetica' (CHOOSE ONLY BETWEEN 'HELVETICA' OR 'GARAMOND'),
+  //           "letterspacing": '0.5' (SET IT IN PX, DONT INCLUDE PX IN YOUR RESPONSE),
+  //           "typecase": 'none'(CHOOSE ONLY BETWEEN 'capitalize', 'uppercase', 'lowercase', 'none'),
+  //           "content": 'create a fake body copy of max 4-sentences for the ${vibe}',
+  //       }
+  //     }`;
 
   headlineSpan.innerHTML = "Loading...";
   subheadSpan.innerHTML = "Loading...";
@@ -51,7 +51,7 @@ function onSubmit() {
   fetch(`/upload`, {
     method: "POST",
     headers: { "Content-Type": "application/json" },
-    body: JSON.stringify({ prompt: prompt }),
+    body: JSON.stringify({ vibe: vibeValue }),
   })
     .then((response) => response.json())
     .then((data) => {

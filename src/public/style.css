@@ -15,6 +15,10 @@ body {
 }
 .column-left{
     width: 30%;
+    display: flex;
+    height: 100%;
+    flex-direction: column;
+    justify-content: center;
 }
 .column-right{
     width: 70%;

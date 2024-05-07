@@ -1,7 +1,7 @@
 import { Application, Router } from "https://deno.land/x/oak@v12.6.1/mod.ts";
-
 import { createExitSignal, staticServer } from "../src/shared/server.ts";
 import { vibeTypeset } from "./vibeTypesetter.js";
+import { generateAndStoreEmbeddings } from "./embeddingGenerator.js"; // Assuming you've separated the function into its own module
 
 import { Chalk } from "npm:chalk@5";
 const chalk = new Chalk({ level: 1 });
@@ -15,6 +15,14 @@ const app = new Application();
 const router = new Router();
 
 // API routes
+
+router.post("/generate-embeddings", async (context) => {
+  await generateAndStoreEmbeddings();
+  context.response.body = {
+    message: "Embeddings generated and stored successfully",
+  };
+  context.response.status = 200;
+});
 
 router.post("/upload", vibeTypeset);
 
